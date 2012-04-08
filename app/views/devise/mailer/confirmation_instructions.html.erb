@@ -1,0 +1,5 @@
+<p>Welcome <%= @resource.email %>!</p>
+
+<p>Your Bubble account <%= @resource.username %> was created. Follow this link to activate your account:</p>
+
+<p><%= link_to 'Activate account!', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

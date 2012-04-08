@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User Id:</b>
+  <%= @tee.user_id %>
+</p>
+
+<p>
+  <b>Tees! Name:</b>
+  <%= @tee.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @tee.category %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @tee.content %>
+</p>
+
+<p>
+  <b>Tees! design</b>
+  <%= image_tag @tee.design.url(:big) %>
+</p>
+
+<%= render :partial => "comments/comment", :locals => { :commentable => @tee } %>
+

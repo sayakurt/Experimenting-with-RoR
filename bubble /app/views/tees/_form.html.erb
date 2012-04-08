@@ -1,0 +1,33 @@
+<%= form_for(@tee, :html => { :multipart => true }) do |f| %>
+  <% if @tee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tee.errors.count, "error") %> prohibited this tee from being saved:</h2>
+
+      <ul>
+      <% @tee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name, "Tees Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.collection_select :category, Tee::CATEGORY, :to_s, :humanize %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :design, "Tees Design!" %><br />
+    <%= f.file_field :design %>
+  <div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

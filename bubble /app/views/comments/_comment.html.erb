@@ -1,0 +1,19 @@
+<% if commentable.comments.empty? %>
+  No comments to display!
+<% else %>
+  <% for comment in commentable.comments %>
+<p>User ID <%=comment.user_id%> <%= comment.created_at %> <%= link_to "delete", [commentable,comment],:confirm => 'Are you sure?', :method => :delete %></p>
+    <p><%= comment.content %></p>
+  <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+  Add Comment
+  <%= form_for [commentable, Comment.new()] do |f| %>
+  <%= f.text_area :content,:style=>"width:320;height:80px" %><br />
+  <%= f.submit %>
+  <% end %>
+<% else %>
+  <%= link_to('login', login_path) %> to comment
+<% end %>
+

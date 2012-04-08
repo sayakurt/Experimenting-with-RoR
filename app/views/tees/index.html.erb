@@ -1,0 +1,30 @@
+<h1>Listing tees</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Content</
+    <th>Tees Design!</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tees.each do |tee| %>
+  <tr>
+    <td><%= tee.user_id %></td>
+    <td><%= tee.name %></td>
+    <td><%= tee.category %></td>
+    <td><%= tee.content %></td>
+    <b><%= image_tag tee.design.url(:small) %></p>
+    <td><%= link_to 'Show', tee %></td>
+    <td><%= link_to 'Edit', edit_tee_path(tee) %></td>
+    <td><%= link_to 'Destroy', tee, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tee', new_tee_path %>

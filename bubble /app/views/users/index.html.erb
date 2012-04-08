@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>Photo</th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= image_tag user.avatar.url(:small) %></td>
+    <td><%=h user.name %></td>
+    <td><%=h user.email %></td>
+  </tr>
+<% end %>
+</table>
